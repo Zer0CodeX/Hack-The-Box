@@ -217,7 +217,6 @@ Info: Downloading C:\Users\svc-alfresco\Documents\20200123011306_BloodHound.zip 
 
 Info: Download successful!
 ```
-## BloodHound
 ```markdown
 root@test:/usr/share/neo4j/bin# neo4j start
 Active database: graph.db
