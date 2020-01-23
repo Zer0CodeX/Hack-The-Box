@@ -469,3 +469,7 @@ EXCH01$:des-cbc-md5:8c45f44c16975129
 ```
 ## Resources:
 [https://securityonline.info/aclpwn/](https://securityonline.info/aclpwn/)
+
+
+![alt text](https://www.hackthebox.eu/badge/image/131282 "BloodHound")
+
