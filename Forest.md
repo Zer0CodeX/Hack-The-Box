@@ -259,5 +259,4 @@ Please choose a path [0-1]
 ```
 
 ## Resources:
-
-[link text itself]: https://securityonline.info/aclpwn/
+[https://securityonline.info/aclpwn/](https://securityonline.info/aclpwn/)
