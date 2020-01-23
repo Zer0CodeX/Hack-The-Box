@@ -531,6 +531,7 @@ nt authority\system
 
 ## Resources:
 [https://securityonline.info/aclpwn/](https://securityonline.info/aclpwn/)
+
 [https://www.offensive-security.com/metasploit-unleashed/psexec-pass-hash/](https://www.offensive-security.com/metasploit-unleashed/psexec-pass-hash/)
 
 
