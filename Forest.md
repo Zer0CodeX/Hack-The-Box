@@ -1,5 +1,6 @@
 
-[logo]: https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Forest.png "Logo Title Text 2"
+[logo]: https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Forest.png
+![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Forest.png "Forest")
 
 ## NMAP:
 
@@ -241,8 +242,8 @@ root@test:/usr/share/neo4j/bin# bloodhound
 ```
 
 
-Inline-style: 
-![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/BloodHound.png "Logo Title Text 1")
+Valid route to Doamin admins: 
+![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/BloodHound.png "BloodHound")
 
 ## Resources:
 
