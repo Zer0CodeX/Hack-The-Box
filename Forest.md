@@ -217,6 +217,26 @@ Info: Downloading C:\Users\svc-alfresco\Documents\20200123011306_BloodHound.zip 
 
 Info: Download successful!
 ```
+## BloodHound
+```markdown
+root@test:/usr/share/neo4j/bin# neo4j start
+Active database: graph.db
+Directories in use:
+  home:         /usr/share/neo4j
+  config:       /usr/share/neo4j/conf
+  logs:         /usr/share/neo4j/logs
+  plugins:      /usr/share/neo4j/plugins
+  import:       /usr/share/neo4j/import
+  data:         /usr/share/neo4j/data
+  certificates: /usr/share/neo4j/certificates
+  run:          /usr/share/neo4j/run
+Starting Neo4j.
+WARNING: Max 1024 open files allowed, minimum of 40000 recommended. See the Neo4j manual.
+Started neo4j (pid 195060). It is available at http://localhost:7474/
+There may be a short delay until the server is ready.
+See /usr/share/neo4j/logs/neo4j.log for current status.
+root@test:/usr/share/neo4j/bin# bloodhound
+```
 ## Resources:
 
 https://securityonline.info/aclpwn/
