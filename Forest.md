@@ -247,4 +247,4 @@ Shortest Paths to Domain Admins:
 
 ## Resources:
 
-https://securityonline.info/aclpwn/
+[link text itself]: https://securityonline.info/aclpwn/
