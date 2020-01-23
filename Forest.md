@@ -471,5 +471,7 @@ EXCH01$:des-cbc-md5:8c45f44c16975129
 [https://securityonline.info/aclpwn/](https://securityonline.info/aclpwn/)
 
 
-                       [![alt text](https://www.hackthebox.eu/badge/image/131282)](https://www.hackthebox.eu/profile/131282 "Zer0Code")
+<p align="center">
+    "[![alt text](https://www.hackthebox.eu/badge/image/131282)](https://www.hackthebox.eu/profile/131282 "Zer0Code")
+</p>
 
