@@ -242,7 +242,7 @@ root@test:/usr/share/neo4j/bin# bloodhound
 ```
 
 
-Shortest Paths to Domain Admins: 
+### Shortest Paths to Domain Admins: 
 ![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/BloodHound.png "BloodHound")
 
 ## ACLPwn.py
