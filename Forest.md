@@ -239,6 +239,11 @@ There may be a short delay until the server is ready.
 See /usr/share/neo4j/logs/neo4j.log for current status.
 root@test:/usr/share/neo4j/bin# bloodhound
 ```
+
+
+Inline-style: 
+![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/BloodHound.png "Logo Title Text 1")
+
 ## Resources:
 
 https://securityonline.info/aclpwn/
