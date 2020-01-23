@@ -4,7 +4,7 @@
 
 ## NMAP:
 
-```markdown
+```console
 root@test:~/HTB/Forest# nmap --top-ports 10000 -sV -sC -O -oN forest_nmap 10.10.10.161
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-01-23 08:37 EET
 Nmap scan report for FOREST.htb.local (10.10.10.161)
