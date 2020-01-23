@@ -3,6 +3,7 @@
 ![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Forest.png "Forest")
 
 ## NMAP:
+As always we will start with nmap to scan for open ports and services:
 
 ```console
 root@test:~/HTB/Forest# nmap --top-ports 10000 -sV -sC -O -oN forest_nmap 10.10.10.161
@@ -80,7 +81,13 @@ Host script results:
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 500.27 seconds
 ```
+We got some useful informations about the box which acting as a Domain controller,
+Computer name: FOREST
+OS: Windows Server 2016 Standard
+Domain name: htb.local
+
 ## Impacket: GetADUsers.py
+You can also use GetADUsers.py from Impacket to enumerate all users on the server
 ```console
 root@test:~/tools/Windows/impacket/examples# python GetADUsers.py -all -dc-ip 10.10.10.161 htb.local/ | cut -d " " -f 1 |tee /root/HTB/Forest/users
 Impacket
@@ -534,6 +541,7 @@ nt authority\system
 
 [https://www.offensive-security.com/metasploit-unleashed/psexec-pass-hash/](https://www.offensive-security.com/metasploit-unleashed/psexec-pass-hash/)
 
+[https://github.com/SecureAuthCorp/impacket](https://github.com/SecureAuthCorp/impacket)
 
 
 [![alt text](https://www.hackthebox.eu/badge/image/131282)](https://www.hackthebox.eu/profile/131282 "Zer0Code")
