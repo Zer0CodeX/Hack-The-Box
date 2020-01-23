@@ -78,7 +78,7 @@ Nmap done: 1 IP address (1 host up) scanned in 500.27 seconds
 ```
 ## impacket GetADUsers.py
 ```markdown
-python GetADUsers.py -all -dc-ip 10.10.10.161 htb.local/ | cut -d " " -f 1 |tee /root/HTB/Forest/users
+root@test:~/tools/Windows/impacket/examples# python GetADUsers.py -all -dc-ip 10.10.10.161 htb.local/ | cut -d " " -f 1 |tee /root/HTB/Forest/users
 Impacket
 
 [*]
