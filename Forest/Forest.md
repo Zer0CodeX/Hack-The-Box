@@ -568,6 +568,8 @@ nt authority\system
 
 [https://ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-with-bloodhound-on-kali-linux](https://ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-with-bloodhound-on-kali-linux)
 
+[https://mcpmag.com/articles/2019/11/13/bloodhound-active-directory-domain-admin.aspx](https://mcpmag.com/articles/2019/11/13/bloodhound-active-directory-domain-admin.aspx)
+
 [https://github.com/gdedrouas/Exchange-AD-Privesc/blob/master/DomainObject/DomainObject.md](https://github.com/gdedrouas/Exchange-AD-Privesc/blob/master/DomainObject/DomainObject.md)
 
 [https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/](https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/)
