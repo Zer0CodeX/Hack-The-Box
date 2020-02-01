@@ -1,7 +1,7 @@
 
 
-[logo]: https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Forest.png
-![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Forest.png "Forest")
+[logo]: https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Forest/Forest.png
+![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Forest/Forest.png "Forest")
 
 ## NMAP:
 As always we will start with nmap to scan for open ports and services:
