@@ -266,7 +266,7 @@ root@test:/usr/share/neo4j/bin# bloodhound
 #### Shortest Path to Domain Admins: 
 Now got a valid path for privileged escalation to Domain Admin
     
-![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/BloodHound.png "BloodHound")
+![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Forest/BloodHound.png "BloodHound")
 
 ## ACLPwn.py
 also we can use ACLPwn.py to determine valid paths to Domain Admins   
@@ -364,7 +364,7 @@ Info: Download successful!
 #### Shortest Path from Zer0Code to Domain Admins: 
 Now we have shorter path to Domain Admins
 
-![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/BloodHound2.png "BloodHound")
+![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Forest/BloodHound2.png "BloodHound")
 
 ## ACLPwn.py
 We can also use ACLPwn.py determine required actions to escalate our user to Domain admin using -dry flag 
