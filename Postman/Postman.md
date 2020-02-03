@@ -7,7 +7,7 @@
 As always we will start with nmap to scan for open ports and services:
 
 ```console
-root@ip-172-31-36-63:~/HTB/Postman# nmap --top-ports 10000 -sV -sC -O -oN postman_nmap 10.10.10.160
+root@Kali:~/HTB/Postman# nmap --top-ports 10000 -sV -sC -O -oN postman_nmap 10.10.10.160
 
 Starting Nmap 7.60 ( https://nmap.org ) at 2020-02-02 12:51 UTC
 Nmap scan report for ip-10-10-10-160.us-east-2.compute.internal (10.10.10.160)
