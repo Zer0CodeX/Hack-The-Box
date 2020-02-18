@@ -1,6 +1,6 @@
 
 
-[logo]: ./nest.jpg
+[logo]: https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Nest/Nest.jpg
 ![alt text](https://github.com/Zer0CodeX/Hack-The-Box/raw/master/Forest/Forest.png "Forest")
 
 ## NMAP:
@@ -83,19 +83,8 @@ OS and Service detection performed. Please report any incorrect results at https
 ```
 
 ## Resources:
-[https://github.com/SecureAuthCorp/impacket](https://github.com/SecureAuthCorp/impacket)
+[https://www.dotnetperls.com/console-vbnet](https://www.dotnetperls.com/console-vbnet)
 
-[https://ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-with-bloodhound-on-kali-linux](https://ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-with-bloodhound-on-kali-linux)
-
-[https://mcpmag.com/articles/2019/11/13/bloodhound-active-directory-domain-admin.aspx](https://mcpmag.com/articles/2019/11/13/bloodhound-active-directory-domain-admin.aspx)
-
-[https://github.com/gdedrouas/Exchange-AD-Privesc/blob/master/DomainObject/DomainObject.md](https://github.com/gdedrouas/Exchange-AD-Privesc/blob/master/DomainObject/DomainObject.md)
-
-[https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/](https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/)
-
-[https://securityonline.info/aclpwn/](https://securityonline.info/aclpwn/)
-
-[https://www.offensive-security.com/metasploit-unleashed/psexec-pass-hash/](https://www.offensive-security.com/metasploit-unleashed/psexec-pass-hash/)
 
 
 
