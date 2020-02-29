@@ -301,6 +301,7 @@ We found RUScanner source code
 ## Resources:
 [https://www.dotnetperls.com/console-vbnet](https://www.dotnetperls.com/console-vbnet)
 [https://www.howtogeek.com/howto/windows-vista/stupid-geek-tricks-hide-data-in-a-secret-text-file-compartment/](https://www.howtogeek.com/howto/windows-vista/stupid-geek-tricks-hide-data-in-a-secret-text-file-compartment/)
+[https://dotnetcademy.net/Learn/2032/Pages/5](https://dotnetcademy.net/Learn/2032/Pages/5)
 
 
 

