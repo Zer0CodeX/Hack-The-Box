@@ -288,9 +288,13 @@ restoring <Snapshot 4kd94bv of [/root] at 2020-04-03 20:07:59.491096967 +0000 UT
 
 
 [https://docs.docker.com/registry/spec/api/](https://docs.docker.com/registry/spec/api/)
+
 [https://bolt.cm/](https://bolt.cm/)
+
 [https://fgsec.net/from-csrf-to-rce-bolt-cms/](https://fgsec.net/from-csrf-to-rce-bolt-cms/)
+
 [https://restic.readthedocs.io/en/stable/](https://restic.readthedocs.io/en/stable/)
+
 [https://github.com/restic/rest-server/releases](https://github.com/restic/rest-server/releases)
 
 
