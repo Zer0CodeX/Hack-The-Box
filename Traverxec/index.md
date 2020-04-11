@@ -245,7 +245,7 @@ www-data@traverxec:/tmp$
 ![alt text](05.png "Traverxec")
 * Interesing script shows David can run "sudo /usr/bin/journalctl -n5 -unostromo.service" without password
 
-* From GTFOBINS we found that journalctl is using less to show the output so we can break from that to root shell if the output window is smaller that 5 lines 
+* From GTFOBINS we found that journalctl is using less to show the output so we can break from that to root shell 
 
 ![alt text](06.png "Traverxec")
 ![alt text](07.png "Traverxec")
