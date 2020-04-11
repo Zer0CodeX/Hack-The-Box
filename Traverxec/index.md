@@ -269,6 +269,7 @@ www-data@traverxec:/tmp$
 ## Resources:
 
 [https://nvd.nist.gov/vuln/detail/CVE-2019-16278](https://nvd.nist.gov/vuln/detail/CVE-2019-16278)
+
 [https://gtfobins.github.io/gtfobins/journalctl/](https://gtfobins.github.io/gtfobins/journalctl/)
 
 
