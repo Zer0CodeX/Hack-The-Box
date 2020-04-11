@@ -3,7 +3,7 @@
 
 ---
 
-<div align="center"><font size="6">HackTheBox Machines Writeups</font></div>
+<div align="center"><font size="6">HackTheBox Writeups</font></div>
 
 
 ---
