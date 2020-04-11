@@ -148,7 +148,7 @@ david:$1$e7NfNpNi$A6nCwOTqrNR2oDuIKirRZ/
 
 ## John The Ripper :
 
-```consloe
+```markdown
 root@Kali:~/HTB/Traverxec# echo 'david:$1$e7NfNpNi$A6nCwOTqrNR2oDuIKirRZ/' > hash.txt
 root@Kali:~/HTB/Traverxec# john hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 Warning: detected hash type "md5crypt", but the string is also recognized as "md5crypt-long"
