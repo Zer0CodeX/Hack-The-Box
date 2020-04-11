@@ -32,7 +32,7 @@ OS and Service detection performed. Please report any incorrect results at https
 * Interesting Nostromo app is running on port 80 with recent CVE-2019-16278
 
 
-## Metasploit Framwork :
+## Metasploit Framework :
 
 ```console
 root@Kali:~/HTB/Traverxec# msfconsole
