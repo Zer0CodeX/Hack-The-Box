@@ -7,9 +7,10 @@
 
 
 ---
-<a href="/Forest/">![Forest](/Forest/Forest.png)</a>
+<a href="/Hack-The-Box/Forest/">![Forest](/Forest/Forest.png)</a>
 
-<a href="/Sniper/">![Sniper](/Sniper/sniper-01.jpg)</a>
+<a href="/Hack-The-Box/Sniper/">![Sniper](/Sniper/sniper-01.jpg)</a>
 
+<a href="/Hack-The-Box/Registry/">![Sniper](/Regestry/01.jpg)</a>
 
 [![alt text](https://www.hackthebox.eu/badge/image/131282)](https://www.hackthebox.eu/profile/131282 "Zer0Code")
