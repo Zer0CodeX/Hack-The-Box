@@ -229,10 +229,11 @@ VeYniFU/TGnRKDYLQH2x0ni1tBf0wKOLERY0CbGDcquzRoWjAmTN/PV2VbEKKD/w
 www-data@traverxec:/tmp$ 
 
 ```
+---
 
 ## User :
 
-* We tried to use the password we found as a passphrase but it didn't work so we decides to crack the ssh passphrase
+* We tried to use the password we that found as a passphrase but it didn't work so we decides to crack the ssh passphrase
 
 ![alt text](02.png "Traverxec")
 ![alt text](03.png "Traverxec")
