@@ -29,7 +29,7 @@ OS and Service detection performed. Please report any incorrect results at https
 # Nmap done at Sun Jan 26 10:40:56 2020 -- 1 IP address (1 host up) scanned in 147.53 seconds
 ```
 
-* Interesting Nostromo app is running on port 80 with recent CVE-2019-16278
+* Interesting Nostromo Web server is running on port 80 with recent CVE-2019-16278
 
 
 ## Metasploit Framework :
