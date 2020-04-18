@@ -24,3 +24,8 @@
 ---
 
 [![alt text](https://www.hackthebox.eu/badge/image/131282)](https://www.hackthebox.eu/profile/131282 "Zer0Code")
+
+---
+
+<div align="center">
+<script src="https://www.hackthebox.eu/badge/131282"></script></div>
