@@ -119,7 +119,7 @@ OS and Service detection performed. Please report any incorrect results at https
 ---
 ## User :
 
-* We used Mango user on connect to the machine with SSH
+* We used Mango user for connecting to the machine with SSH
 
 ![alt text](14.png "Mango")
 
