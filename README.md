@@ -4,13 +4,14 @@
 ---
 <div align="center"><font size="6">HackTheBox Writeups</font></div>
 ---
+
 <div align="center">
 * If you want to support me doing more writeups you can buy me a coffee 
 
-<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/Zer0Code"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:15px;font-size:28px !important;">Buy me a coffee</span></a>
+<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/Zer0Code"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee">
 
 </div>
----
+
 ---
 
 <a href="/Hack-The-Box/Traverxec/">![Traverxec](/Traverxec/Traverxec.jpg)</a>
