@@ -11,7 +11,7 @@
 
 ---
 
-
+<a href="/Hack-The-Box/Mango/">![Mango](/Mango/Mango.jpg)</a>
 
 <a href="/Hack-The-Box/Traverxec/">![Traverxec](/Traverxec/Traverxec.jpg)</a>
 
