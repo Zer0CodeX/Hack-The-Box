@@ -74,14 +74,14 @@ OS and Service detection performed. Please report any incorrect results at https
 # Nmap done at Thu Mar  5 18:38:48 2020 -- 1 IP address (1 host up) scanned in 1967.78 seconds
 ```
 ## HTTP (80) :
-* First we check HTTP service on port 80 and we got forbidden ,also we tried bruteforcing but we got nothing
+* First we checked HTTP service on port 80 and we got forbidden ,also we tried bruteforcing but we got nothing
 
 ![alt text](01.png "Mango")
 
 ---
 ## HTTPS (443) :
 
-* We checked HTTPS service and got the same CN that we got with NMAP
+* We checked HTTPS service and got the same CN that we got with NMAP "staging-order.mango.htb"
 
 ![alt text](02.png "Mango")
 
