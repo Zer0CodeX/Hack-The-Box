@@ -92,39 +92,55 @@ OS and Service detection performed. Please report any incorrect results at https
 ![alt text](04.png "Mango")
 
 ![alt text](05.png "Mango")
+
 * After many trials of login bypass we figured out the meaning of box name hint "Mango" ,so we tried MangoDB Nosql authentication bypass 
 
 ![alt text](06.png "Mango")
 ![alt text](07.png "Mango")
+
 * it worked but nothing interested there
 
 ![alt text](08.png "Mango")
 
 * We thought about extracting usernames and passwords from database ,so we used that python script in resources from github
+
 ![alt text](09.png "Mango")
+
 * We got two usernames and two passwords
 
 ![alt text](10.png "Mango")
 ![alt text](11.png "Mango")
 ![alt text](12.png "Mango")
+
 * lets use hydra this time to try creds on SSH to found the correct pair 
+
 ![alt text](13.png "Mango")
 
 ---
 ## User :
+
 * We used Mango user on connect to the machine with SSH
+
 ![alt text](14.png "Mango")
+
 * User flag with owned by admin ,so we tried to switch to admin user using the other password and it worked 
+
 ![alt text](15.png "Mango")
 
 ---
 ## Root :
+
 * First we used simple http server python module to copy linpeas to the machine
+
 ![alt text](16.png "Mango")
 ![alt text](17.png "Mango")
+
 * We found good PE vector using Java jjs 
+
 ![alt text](18.png "Mango")
+
 * Using was very clear on gtfobin to read the root flag
+
 ![alt text](19.png "Mango")
 ![alt text](20.png "Mango")
 
@@ -133,6 +149,7 @@ OS and Service detection performed. Please report any incorrect results at https
 ## Root Shell :
 
 * For getting root shell we copied our SSH key to authorized keys on the machine using jjs
+
 ![alt text](21.png "Mango")
 
 * Now we can connect to the machine using SSH as root
