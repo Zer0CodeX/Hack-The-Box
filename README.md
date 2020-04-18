@@ -6,7 +6,7 @@
 ---
 
 <div align="center">
-* If you want to support me doing more writeups you can buy me a coffee 
+* If you want to support me doing more writeups 
 
 <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/Zer0Code"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee">
 
