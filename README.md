@@ -6,8 +6,8 @@
 <div align="center"><font size="6">HackTheBox Writeups</font></div>
 
 ---
-<div align="center"><font size="6">If you want to support me doing more writeups</font></div>
-<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/Zer0Code"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee">
+<div align="center"><font size="4">If you want to support me doing more writeups</font>
+<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/Zer0Code"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"></div>
 
 ---
 
