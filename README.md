@@ -24,4 +24,4 @@
 ---
 
 <div align="center">
-<script src="https://www.hackthebox.eu/badge/131282"></script></div>
+<a href="https://www.hackthebox.eu/profile/131282" title="Zer0Code"><img src="https://www.hackthebox.eu/badge/image/131282" alt="alt text" /></a></div>
