@@ -103,6 +103,7 @@ OS and Service detection performed. Please report any incorrect results at https
 * We thought about extracting usernames and passwords from database ,so we used that python script in resources from github
 ![alt text](09.png "Mango")
 * We got two usernames and two passwords
+
 ![alt text](10.png "Mango")
 ![alt text](11.png "Mango")
 ![alt text](12.png "Mango")
