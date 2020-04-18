@@ -112,7 +112,7 @@ OS and Service detection performed. Please report any incorrect results at https
 ![alt text](11.png "Mango")
 ![alt text](12.png "Mango")
 
-* lets use hydra this time to try creds on SSH to found the correct pair 
+* lets use hydra this time to try creds on SSH and find correct pair 
 
 ![alt text](13.png "Mango")
 
